@@ -17,7 +17,7 @@ namespace BasicAuthentication.Middleware
             var headers = context.Request.Headers["Authorization"].ToString();
             var creds = headers.Substring(6);
             var encodedString = Encoding.UTF8.GetString(Convert.FromBase64String(creds));
-            string[] credentialString = encodedString.Split(',');
+            string[] credentialString = encodedString.Split(':');
             string userName = credentialString[0];
             string password = credentialString[1];
 
